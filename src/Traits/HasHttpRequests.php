@@ -44,9 +44,9 @@ trait HasHttpRequests
      * @var array
      */
     protected static $defaults = [
-        'curl'     => [
+        'curl' => [
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
-        ]
+        ],
     ];
 
     /**
@@ -100,7 +100,7 @@ trait HasHttpRequests
     /**
      * Add a middleware.
      *
-     * @param callable $middleware
+     * @param callable    $middleware
      * @param null|string $name
      *
      * @return $this
@@ -131,7 +131,7 @@ trait HasHttpRequests
      *
      * @param string $url
      * @param string $method
-     * @param array $options
+     * @param array  $options
      *
      * @return \Psr\Http\Message\ResponseInterface|\EasyWeChat\Kernel\Support\Collection|array|object|string
      */

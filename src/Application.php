@@ -4,6 +4,7 @@ namespace Hachi\Bearychat;
 
 use Hachi\Bearychat\Kernel\ServiceContainer;
 use Hachi\Bearychat\Channel\ServiceProvider as ChannelServiceProvider;
+
 /**
  * Application.
  *
@@ -18,5 +19,4 @@ class Application extends ServiceContainer
     protected $providers = [
         ChannelServiceProvider::class,
     ];
-
 }
