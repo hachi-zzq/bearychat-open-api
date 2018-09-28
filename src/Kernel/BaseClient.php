@@ -11,7 +11,6 @@
 
 namespace Hachi\Bearychat\Kernel;
 
-use function Couchbase\defaultDecoder;
 use GuzzleHttp\Client;
 use Hachi\Bearychat\Kernel\Http\Response;
 use Psr\Http\Message\RequestInterface;
@@ -29,12 +28,8 @@ class BaseClient
         request as performRequest;
     }
 
-    /**
-     */
     protected $app;
 
-    /**
-     */
     protected $sign;
 
     /**
@@ -120,7 +115,7 @@ class BaseClient
 
         foreach ($files as $name => $path) {
             $multipart[] = [
-                'name'     => $name,
+                'name' => $name,
                 'contents' => fopen($path, 'r'),
             ];
         }
@@ -149,6 +144,7 @@ class BaseClient
      * @param string $method
      * @param array  $options
      * @param bool   $returnRaw
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      */
     public function request(string $url, string $method = 'GET', array $options = [], $returnRaw = false)
@@ -158,6 +154,7 @@ class BaseClient
         }
 
         $response = $this->performRequest($url, $method, $options);
+
         return $returnRaw ? $response : $this->castResponseToType($response, $this->app->config->get('response_type'));
     }
 

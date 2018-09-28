@@ -11,7 +11,6 @@
 
 namespace Hachi\Bearychat\Kernel;
 
-use function GuzzleHttp\Psr7\str;
 use function GuzzleHttp\Psr7\stream_for;
 use GuzzleHttp\Psr7\Uri;
 use Hachi\Bearychat\Application;
@@ -34,7 +33,7 @@ class Sign implements SignInterface
 
     /**
      * @param \Psr\Http\Message\RequestInterface $request
-     * @param array $requestOptions
+     * @param array                              $requestOptions
      *
      * @return \Psr\Http\Message\RequestInterface
      */
@@ -69,6 +68,4 @@ class Sign implements SignInterface
 
         return $request;
     }
-
-
 }

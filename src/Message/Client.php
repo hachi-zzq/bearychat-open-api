@@ -6,5 +6,4 @@ use Hachi\Bearychat\Kernel\BaseClient;
 
 class Client extends BaseClient
 {
-    
 }

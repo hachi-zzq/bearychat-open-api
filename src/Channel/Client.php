@@ -10,9 +10,12 @@ class Client extends BaseClient
     const CREATE = 'channel.create';
 
     /**
-     * 频道列表
+     * 频道列表.
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     *
      * @author zhuzhengqian <hachi.zzq@gmail.com>
      */
     public function list()
