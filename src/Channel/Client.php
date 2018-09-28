@@ -9,13 +9,21 @@ class Client extends BaseClient
     const LIST = 'channel.list';
 
     const CREATE = 'channel.create';
+
     const INFO = 'channel.info';
+
     const ARCHIVE = 'channel.archive';
+
     const INVITE = 'channel.invite';
+
     const JOIN = 'channel.join';
+
     const KICK = 'channel.kick';
+
     const KICKOUT = 'channel.kickout';
+
     const LEAVE = 'channel.leave';
+
     const UNARCHIVE = 'channel.unarchive';
 
     /**
@@ -38,7 +46,7 @@ class Client extends BaseClient
      * @param array $params
      *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
-     * 
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function create($params = [])
@@ -47,9 +55,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 指定讨论组的完整信息
+     * 指定讨论组的完整信息.
+     *
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function detail($channelId)
@@ -58,9 +69,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 归档一个讨论组
+     * 归档一个讨论组.
+     *
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function archive($channelId)
@@ -69,10 +83,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 当前用户邀请一个团队成员加入讨论组
+     * 当前用户邀请一个团队成员加入讨论组.
+     *
      * @param $channelId
      * @param $inviteUid
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function invite($inviteUid, $channelId)
@@ -81,9 +98,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 当前用户加入指定讨论组
+     * 当前用户加入指定讨论组.
+     *
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function join($channelId)
@@ -92,10 +112,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 当前用户移除一个讨论组成员
+     * 当前用户移除一个讨论组成员.
+     *
      * @param $kickUid
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function kick($kickUid, $channelId)
@@ -104,10 +127,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 当前用户移除一个讨论组成员
+     * 当前用户移除一个讨论组成员.
+     *
      * @param $kickUid
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function kickout($kickUid, $channelId)
@@ -116,9 +142,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 当前用户离开讨论组
+     * 当前用户离开讨论组.
+     *
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function leave($channelId)
@@ -127,9 +156,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 恢复一个已被归档的讨论组
+     * 恢复一个已被归档的讨论组.
+     *
      * @param $channelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function unarchive($channelId)
