@@ -7,6 +7,7 @@ use Hachi\Bearychat\Kernel\BaseClient;
 class Client extends BaseClient
 {
     const LIST = 'channel.list';
+    const CREATE = 'channel.create';
 
     /**
      * 频道列表
@@ -17,5 +18,10 @@ class Client extends BaseClient
     public function list()
     {
         return $this->httpGet(self::LIST);
+    }
+
+    public function create($params = [])
+    {
+        return $this->httpPost(self::CREATE, $params);
     }
 }

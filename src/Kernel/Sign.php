@@ -42,17 +42,29 @@ class Sign implements SignInterface
     {
         $token = $this->app->config['token'];
 
-        if (strtoupper($request->getMethod()) == 'GET') {
+        if ('GET' == strtoupper($request->getMethod())) {
             $uri = $request->getUri();
             $query = $uri->getQuery();
-            if($query){
+            if ($query) {
                 $uri = $uri->withQuery($uri->getQuery().'&token='.$token);
-            }else{
-                $uri = $uri->withQuery("token=".$token);
+            } else {
+                $uri = $uri->withQuery('token='.$token);
             }
             $request = $request->withUri(new Uri($uri));
         } else {
-            $request = $request->withBody(stream_for(http_build_query($parameters)));
+            $bodyContent = $request->getBody()->getContents();
+            $jsonContent = json_decode($bodyContent, true);
+            if (json_last_error()) {
+                if ($bodyContent) {
+                    $bodyContent .= '&token='.$token;
+                } else {
+                    $bodyContent = '&token='.$token;
+                }
+            } else {
+                $jsonContent['token'] = $token;
+                $bodyContent = json_encode($jsonContent);
+            }
+            $request = $request->withBody(stream_for($bodyContent));
         }
 
         return $request;
