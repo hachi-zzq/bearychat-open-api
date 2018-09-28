@@ -51,7 +51,19 @@ class Sign implements SignInterface
             }
             $request = $request->withUri(new Uri($uri));
         } else {
-            $request = $request->withBody(stream_for(http_build_query($parameters)));
+            $bodyContent = $request->getBody()->getContents();
+            $jsonContent = json_decode($bodyContent, true);
+            if (json_last_error()) {
+                if ($bodyContent) {
+                    $bodyContent .= '&token='.$token;
+                } else {
+                    $bodyContent = '&token='.$token;
+                }
+            } else {
+                $jsonContent['token'] = $token;
+                $bodyContent = json_encode($jsonContent);
+            }
+            $request = $request->withBody(stream_for($bodyContent));
         }
 
         return $request;
