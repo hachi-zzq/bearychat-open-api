@@ -11,7 +11,6 @@
 
 namespace Hachi\Bearychat\Kernel;
 
-use function GuzzleHttp\Psr7\str;
 use function GuzzleHttp\Psr7\stream_for;
 use GuzzleHttp\Psr7\Uri;
 use Hachi\Bearychat\Application;
@@ -34,7 +33,7 @@ class Sign implements SignInterface
 
     /**
      * @param \Psr\Http\Message\RequestInterface $request
-     * @param array $requestOptions
+     * @param array                              $requestOptions
      *
      * @return \Psr\Http\Message\RequestInterface
      */
@@ -42,13 +41,13 @@ class Sign implements SignInterface
     {
         $token = $this->app->config['token'];
 
-        if (strtoupper($request->getMethod()) == 'GET') {
+        if ('GET' == strtoupper($request->getMethod())) {
             $uri = $request->getUri();
             $query = $uri->getQuery();
-            if($query){
+            if ($query) {
                 $uri = $uri->withQuery($uri->getQuery().'&token='.$token);
-            }else{
-                $uri = $uri->withQuery("token=".$token);
+            } else {
+                $uri = $uri->withQuery('token='.$token);
             }
             $request = $request->withUri(new Uri($uri));
         } else {
@@ -57,6 +56,4 @@ class Sign implements SignInterface
 
         return $request;
     }
-
-
 }

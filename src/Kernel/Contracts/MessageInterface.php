@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Hachi\Bearychat\Kernel\Contracts;
 
 interface MessageInterface
