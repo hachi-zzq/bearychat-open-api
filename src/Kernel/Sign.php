@@ -57,7 +57,7 @@ class Sign implements SignInterface
                 if ($bodyContent) {
                     $bodyContent .= '&token='.$token;
                 } else {
-                    $bodyContent = '&token='.$token;
+                    $bodyContent = 'token='.$token;
                 }
             } else {
                 $jsonContent['token'] = $token;

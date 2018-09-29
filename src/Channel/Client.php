@@ -6,12 +6,11 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Exception\TransferException;
 use Hachi\Bearychat\Kernel\BaseClient;
+use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestException;
 
 class Client extends BaseClient
 {
     const LIST = 'channel.list';
-
-    const INIFO = 'channel.info';
 
     const CREATE = 'channel.create';
 
@@ -45,19 +44,11 @@ class Client extends BaseClient
         return $this->httpGet(self::LIST);
     }
 
-
     public function info($channelId)
     {
-        try {
-            $respsone = $this->httpGet(self::INIFO, [
-                'channel_id' => $channelId
-            ]);
-        } catch (TransferException $exception) {
-            $re = getResponseFromGuzzleException($exception);
-            dd($re);
-        }
-
-        dd($repsone);
+        return $this->httpGet(self::INFO, [
+            'channel_id' => $channelId
+        ]);
     }
 
     /**
