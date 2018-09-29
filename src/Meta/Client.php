@@ -10,7 +10,9 @@ class Client extends BaseClient
 
     /**
      * 返回 BearyChat API 的状态
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function meta()

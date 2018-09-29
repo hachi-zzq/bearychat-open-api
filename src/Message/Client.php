@@ -7,17 +7,24 @@ use Hachi\Bearychat\Kernel\BaseClient;
 class Client extends BaseClient
 {
     const CREATE = 'message.create';
+
     const DELETE = 'message.delete';
+
     const INFO = 'message.info';
+
     const QUERY = 'message.query';
+
     const UPDATE_TEXT = 'message.update_text';
 
     /**
-     * 发送一条消息到指定聊天会话
+     * 发送一条消息到指定聊天会话.
+     *
      * @param $vchannelId
      * @param $text
      * @param array $attachments
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function create($vchannelId, $text, $attachments = [])
@@ -25,61 +32,73 @@ class Client extends BaseClient
         return $this->httpPost(self::CREATE, [
             'vchannel_id' => $vchannelId,
             'text' => $text,
-            'attachments' => $attachments
+            'attachments' => $attachments,
         ]);
     }
 
     /**
-     * 删除一条消息
+     * 删除一条消息.
+     *
      * @param $vchannelId
      * @param $messageKey
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function delete($vchannelId, $messageKey)
     {
         return $this->httpPost(self::DELETE, [
             'vchannel_id' => $vchannelId,
-            'message_key' => $messageKey
+            'message_key' => $messageKey,
         ]);
     }
 
     /**
-     * 返回一条消息的信息
+     * 返回一条消息的信息.
+     *
      * @param $vchannelId
      * @param $messageKey
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function info($vchannelId, $messageKey)
     {
         return $this->httpGet(self::INFO, [
             'vchannel_id' => $vchannelId,
-            'message_key' => $messageKey
+            'message_key' => $messageKey,
         ]);
     }
 
     /**
-     * 更新一条消息的内容
+     * 更新一条消息的内容.
+     *
      * @param $vchannelId
      * @param $query
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function query($vchannelId, $query)
     {
         return $this->httpPost(self::QUERY, [
             'vchannel_id' => $vchannelId,
-            'query' => $query
+            'query' => $query,
         ]);
     }
 
     /**
-     * 更新一条消息的内容
+     * 更新一条消息的内容.
+     *
      * @param $vchannelId
      * @param $messageKey
      * @param $text
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function updateText($vchannelId, $messageKey, $text)
