@@ -2,9 +2,7 @@
 
 namespace Hachi\Bearychat\Channel;
 
-use GuzzleHttp\Exception\TransferException;
 use Hachi\Bearychat\Kernel\BaseClient;
-use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestException;
 
 class Client extends BaseClient
 {
@@ -45,7 +43,7 @@ class Client extends BaseClient
     public function info($channelId)
     {
         return $this->httpGet(self::INFO, [
-            'channel_id' => $channelId
+            'channel_id' => $channelId,
         ]);
     }
 
