@@ -98,6 +98,18 @@ class BaseClient
     }
 
     /**
+     * PATCH request
+     * @param string $url
+     * @param array $data
+     * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     * @author Caikeal<caikeal@qq.com>
+     */
+    public function httpPatch(string $url, array $data = [])
+    {
+        return $this->request($url, 'PATCH', ['form_params' => $data]);
+    }
+
+    /**
      * Upload file.
      *
      * @param string $url
