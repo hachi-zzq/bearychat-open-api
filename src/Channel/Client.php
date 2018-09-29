@@ -2,8 +2,6 @@
 
 namespace Hachi\Bearychat\Channel;
 
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Exception\TransferException;
 use Hachi\Bearychat\Kernel\BaseClient;
 use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestException;
