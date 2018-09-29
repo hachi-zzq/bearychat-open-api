@@ -7,19 +7,30 @@ use Hachi\Bearychat\Kernel\BaseClient;
 class Client extends BaseClient
 {
     const ARCHIVE = 'session_channel.archive';
+
     const CONVERT_TO_CHANNEL = 'session_channel.convert_to_channel';
+
     const CREATE = 'session_channel.create';
+
     const INFO = 'session_channel.info';
+
     const INVITE = 'session_channel.invite';
+
     const KICK = 'session_channel.kick';
+
     const KICKOUT = 'session_channel.kickout';
+
     const LEAVE = 'session_channel.leave';
+
     const LIST = 'session_channel.invite';
 
     /**
-     * 归档一个临时讨论组
+     * 归档一个临时讨论组.
+     *
      * @param $sessionChannelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function archive($sessionChannelId)
@@ -28,11 +39,14 @@ class Client extends BaseClient
     }
 
     /**
-     * 将临时讨论组转换为讨论组
+     * 将临时讨论组转换为讨论组.
+     *
      * @param $sessionChannelId
      * @param $name
      * @param bool $private
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function convertToChannel($sessionChannelId, $name, $private = false)
@@ -40,15 +54,18 @@ class Client extends BaseClient
         return $this->httpPost(self::CONVERT_TO_CHANNEL, [
             'session_channel_id' => $sessionChannelId,
             'name' => $name,
-            'private' => $private
+            'private' => $private,
         ]);
     }
 
     /**
-     * 创建一个临时讨论组
+     * 创建一个临时讨论组.
+     *
      * @param string $name
      * @param $memberUids
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function create($memberUids, $name = '')
@@ -58,13 +75,17 @@ class Client extends BaseClient
             $params['name'] = $name;
         }
         $params['member_uids'] = $memberUids;
+
         return $this->httpPost(self::CONVERT_TO_CHANNEL, $params);
     }
 
     /**
-     * 返回一个临时讨论组的完整信息
+     * 返回一个临时讨论组的完整信息.
+     *
      * @param $sessionChannelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function info($sessionChannelId)
@@ -73,10 +94,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 邀请一个团队成员加入临时讨论组
+     * 邀请一个团队成员加入临时讨论组.
+     *
      * @param $sessionChannelId
      * @param $uid
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function invite($sessionChannelId, $uid)
@@ -85,10 +109,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 移除一个临时讨论组成员
+     * 移除一个临时讨论组成员.
+     *
      * @param $sessionChannelId
      * @param $uid
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function kick($sessionChannelId, $uid)
@@ -97,10 +124,13 @@ class Client extends BaseClient
     }
 
     /**
-     * 移除一个临时讨论组成员
+     * 移除一个临时讨论组成员.
+     *
      * @param $sessionChannelId
      * @param $uid
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function kickout($sessionChannelId, $uid)
@@ -109,9 +139,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 离开临时讨论组
+     * 离开临时讨论组.
+     *
      * @param $sessionChannelId
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function leave($sessionChannelId)
@@ -120,8 +153,10 @@ class Client extends BaseClient
     }
 
     /**
-     * 返回团队内已经加入的临时讨论组列表
+     * 返回团队内已经加入的临时讨论组列表.
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @author Caikeal<caikeal@qq.com>
      */
     public function list()
