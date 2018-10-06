@@ -27,13 +27,9 @@ class Client extends BaseClient
      *
      * @author Caikeal<caikeal@qq.com>
      */
-    public function create($vchannelId, $text, $attachments = [])
+    public function create($input)
     {
-        return $this->httpPost(self::CREATE, [
-            'vchannel_id' => $vchannelId,
-            'text' => $text,
-            'attachments' => $attachments,
-        ]);
+        return $this->httpPostJson(self::CREATE, $input);
     }
 
     /**
@@ -48,7 +44,7 @@ class Client extends BaseClient
      */
     public function delete($vchannelId, $messageKey)
     {
-        return $this->httpPost(self::DELETE, [
+        return $this->httpPostJson(self::DELETE, [
             'vchannel_id' => $vchannelId,
             'message_key' => $messageKey,
         ]);
@@ -66,7 +62,7 @@ class Client extends BaseClient
      */
     public function info($vchannelId, $messageKey)
     {
-        return $this->httpGet(self::INFO, [
+        return $this->httpPostJson(self::INFO, [
             'vchannel_id' => $vchannelId,
             'message_key' => $messageKey,
         ]);
@@ -84,7 +80,7 @@ class Client extends BaseClient
      */
     public function query($vchannelId, $query)
     {
-        return $this->httpPost(self::QUERY, [
+        return $this->httpPostJson(self::QUERY, [
             'vchannel_id' => $vchannelId,
             'query' => $query,
         ]);
@@ -103,7 +99,7 @@ class Client extends BaseClient
      */
     public function updateText($vchannelId, $messageKey, $text)
     {
-        return $this->httpPatch(self::UPDATE_TEXT, [
+        return $this->httpPatchJson(self::UPDATE_TEXT, [
             'vchannel_id' => $vchannelId,
             'message_key' => $messageKey,
             'text' => $text,

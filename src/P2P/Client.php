@@ -23,7 +23,7 @@ class Client extends BaseClient
      */
     public function create($userId)
     {
-        return $this->httpPost(self::CREATE, ['user_id' => $userId]);
+        return $this->httpPostJson(self::CREATE, ['user_id' => $userId]);
     }
 
     /**

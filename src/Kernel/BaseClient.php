@@ -112,6 +112,11 @@ class BaseClient
     {
         return $this->request($url, 'PATCH', ['form_params' => $data]);
     }
+    
+    public function httpPatchJson(string $url, array $data = [])
+    {
+        return $this->request($url, 'PATCH', ['json' => $data]);
+    }
 
     /**
      * Upload file.

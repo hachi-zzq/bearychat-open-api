@@ -35,7 +35,7 @@ class Client extends BaseClient
      */
     public function archive($sessionChannelId)
     {
-        return $this->httpPost(self::ARCHIVE, ['session_channel_id' => $sessionChannelId]);
+        return $this->httpPostJson(self::ARCHIVE, ['session_channel_id' => $sessionChannelId]);
     }
 
     /**
@@ -51,7 +51,7 @@ class Client extends BaseClient
      */
     public function convertToChannel($sessionChannelId, $name, $private = false)
     {
-        return $this->httpPost(self::CONVERT_TO_CHANNEL, [
+        return $this->httpPostJson(self::CONVERT_TO_CHANNEL, [
             'session_channel_id' => $sessionChannelId,
             'name' => $name,
             'private' => $private,
@@ -76,7 +76,7 @@ class Client extends BaseClient
         }
         $params['member_uids'] = $memberUids;
 
-        return $this->httpPost(self::CONVERT_TO_CHANNEL, $params);
+        return $this->httpPostJson(self::CONVERT_TO_CHANNEL, $params);
     }
 
     /**
@@ -105,7 +105,7 @@ class Client extends BaseClient
      */
     public function invite($sessionChannelId, $uid)
     {
-        return $this->httpPost(self::INVITE, ['session_channel_id' => $sessionChannelId, 'invite_uid' => $uid]);
+        return $this->httpPostJson(self::INVITE, ['session_channel_id' => $sessionChannelId, 'invite_uid' => $uid]);
     }
 
     /**
@@ -120,7 +120,7 @@ class Client extends BaseClient
      */
     public function kick($sessionChannelId, $uid)
     {
-        return $this->httpPost(self::KICK, ['session_channel_id' => $sessionChannelId, 'kick_uid' => $uid]);
+        return $this->httpPostJson(self::KICK, ['session_channel_id' => $sessionChannelId, 'kick_uid' => $uid]);
     }
 
     /**
@@ -135,7 +135,7 @@ class Client extends BaseClient
      */
     public function kickout($sessionChannelId, $uid)
     {
-        return $this->httpPost(self::KICKOUT, ['session_channel_id' => $sessionChannelId, 'kick_uid' => $uid]);
+        return $this->httpPostJson(self::KICKOUT, ['session_channel_id' => $sessionChannelId, 'kick_uid' => $uid]);
     }
 
     /**
@@ -149,7 +149,7 @@ class Client extends BaseClient
      */
     public function leave($sessionChannelId)
     {
-        return $this->httpPost(self::LEAVE, ['session_channel_id' => $sessionChannelId]);
+        return $this->httpPostJson(self::LEAVE, ['session_channel_id' => $sessionChannelId]);
     }
 
     /**

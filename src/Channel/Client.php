@@ -60,7 +60,7 @@ class Client extends BaseClient
      */
     public function create($params = [])
     {
-        return $this->httpPost(self::CREATE, $params);
+        return $this->httpPostJson(self::CREATE, $params);
     }
 
     /**
@@ -88,7 +88,7 @@ class Client extends BaseClient
      */
     public function archive($channelId)
     {
-        return $this->httpPost(self::ARCHIVE, ['channel_id' => $channelId]);
+        return $this->httpPostJson(self::ARCHIVE, ['channel_id' => $channelId]);
     }
 
     /**
@@ -103,7 +103,7 @@ class Client extends BaseClient
      */
     public function invite($inviteUid, $channelId)
     {
-        return $this->httpPost(self::INVITE, ['channel_id' => $channelId, 'invite_uid' => $inviteUid]);
+        return $this->httpPostJson(self::INVITE, ['channel_id' => $channelId, 'invite_uid' => $inviteUid]);
     }
 
     /**
@@ -117,7 +117,7 @@ class Client extends BaseClient
      */
     public function join($channelId)
     {
-        return $this->httpPost(self::JOIN, ['channel_id' => $channelId]);
+        return $this->httpPostJson(self::JOIN, ['channel_id' => $channelId]);
     }
 
     /**
@@ -132,7 +132,7 @@ class Client extends BaseClient
      */
     public function kick($kickUid, $channelId)
     {
-        return $this->httpPost(self::KICK, ['channel_id' => $channelId, 'kick_uid' => $kickUid]);
+        return $this->httpPostJson(self::KICK, ['channel_id' => $channelId, 'kick_uid' => $kickUid]);
     }
 
     /**
@@ -147,7 +147,7 @@ class Client extends BaseClient
      */
     public function kickout($kickUid, $channelId)
     {
-        return $this->httpPost(self::KICKOUT, ['channel_id' => $channelId, 'kick_uid' => $kickUid]);
+        return $this->httpPostJson(self::KICKOUT, ['channel_id' => $channelId, 'kick_uid' => $kickUid]);
     }
 
     /**
@@ -161,7 +161,7 @@ class Client extends BaseClient
      */
     public function leave($channelId)
     {
-        return $this->httpPost(self::LEAVE, ['channel_id' => $channelId]);
+        return $this->httpPostJson(self::LEAVE, ['channel_id' => $channelId]);
     }
 
     /**
@@ -175,6 +175,6 @@ class Client extends BaseClient
      */
     public function unarchive($channelId)
     {
-        return $this->httpPost(self::UNARCHIVE, ['channel_id' => $channelId]);
+        return $this->httpPostJson(self::UNARCHIVE, ['channel_id' => $channelId]);
     }
 }

@@ -17,6 +17,6 @@ class Client extends BaseClient
      */
     public function start()
     {
-        return $this->httpPost(self::START);
+        return $this->httpPostJson(self::START);
     }
 }
