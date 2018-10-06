@@ -13,7 +13,7 @@ class Client extends BaseClient
     const ME = 'user.me';
 
     /**
-     * 用户列表
+     * 用户列表.
      *
      * @param array $input
      *
