@@ -14,7 +14,7 @@ class Client extends BaseClient
 
 
     /**
-     * 用户立碑
+     * 用户列表
      * @param array $input
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
