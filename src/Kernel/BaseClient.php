@@ -236,12 +236,11 @@ class BaseClient
         };
     }
 
-
     /**
      * Middleware that throws exceptions for 4xx or 5xx responses when the
      * "http_error" request option is set to true.
      *
-     * @return callable Returns a function that accepts the next handler.
+     * @return callable returns a function that accepts the next handler
      */
     protected function customErrorsHandle()
     {
@@ -250,11 +249,12 @@ class BaseClient
                 if (empty($options['http_errors'])) {
                     return $handler($request, $options);
                 }
+
                 return $handler($request, $options)->then(
                     function (\GuzzleHttp\Psr7\Response $response) use ($request, $handler) {
-                        $content = json_decode($response->getBody()->getContents(),true);
-                        if(isset($content['code'])){
-                            throw new BearychatRequestException($content['error'] ?? '',$content['code']);
+                        $content = json_decode($response->getBody()->getContents(), true);
+                        if (isset($content['code'])) {
+                            throw new BearychatRequestException($content['error'] ?? '', $content['code']);
                         }
 
                         return $response;
@@ -263,6 +263,4 @@ class BaseClient
             };
         };
     }
-
-
 }

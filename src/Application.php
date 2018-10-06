@@ -17,6 +17,14 @@ use Hachi\Bearychat\VChannel\ServiceProvider as VChannelServiceProvider;
  * Application.
  *
  * @property \Hachi\Bearychat\Channel\Client $channel
+ * @property \Hachi\Bearychat\Message\Client $message
+ * @property \Hachi\Bearychat\Meta\Client $meta
+ * @property \Hachi\Bearychat\P2P\Client $p2p
+ * @property \Hachi\Bearychat\Rtm\Client $rtm
+ * @property \Hachi\Bearychat\SessionChannel\Client $session_channel
+ * @property \Hachi\Bearychat\Team\Client $team
+ * @property \Hachi\Bearychat\User\Client $user
+ * @property \Hachi\Bearychat\VChannel\Client $vchannel
  * @property \Hachi\Bearychat\Kernel\Config $config
  */
 class Application extends ServiceContainer
