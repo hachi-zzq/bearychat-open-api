@@ -12,12 +12,15 @@ class Client extends BaseClient
 
     const ME = 'user.me';
 
-
     /**
      * 用户列表
+     *
      * @param array $input
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     *
      * @author zhuzhengqian <hachi.zzq@gmail.com>
      */
     public function list(array $input = [])
@@ -38,9 +41,12 @@ class Client extends BaseClient
     }
 
     /**
-     * 个人信息
+     * 个人信息.
+     *
      * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     *
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     *
      * @author zhuzhengqian <hachi.zzq@gmail.com>
      */
     public function me()
