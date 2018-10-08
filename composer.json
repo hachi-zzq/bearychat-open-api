@@ -21,10 +21,7 @@
   "autoload": {
     "psr-4": {
       "Hachi\\Bearychat\\": "src/"
-    },
-    "files":[
-       "src/helper.php"
-    ]
+    }
   },
   "repositories": [
     {
