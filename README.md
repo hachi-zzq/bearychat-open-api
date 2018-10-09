@@ -1,12 +1,13 @@
-# bearychat open api SDK 工具包
+# bearychat open api PHP SDK 工具包
 
-> author:zhuzhengqian<hachi.zzq@gmail.com>
+> zhuzhengqian<hachi.zzq@gmail.com> , Caikeal<caikeal@qq.com>
 
 
 ## 这个包是什么？
 
-bearychat（贝洽）开发 Open API SDK
+基于 [EasyWeChat](https://github.com/overtrue/wechat) 脚手架开发的 bearychat（贝洽） Open API PHP SDK
 
+> https://github.com/bearyinnovative/OpenAPI
 
 
 ## 如何安装
@@ -38,6 +39,47 @@ return [
 ## 使用示例
 ```php
 <?php
-//todo
+
+$application = new \Hachi\Bearychat\Application([
+    'token' => 'demo-token'
+]);
+
+
+/**
+ * 频道列表
+ */
+$channels = $application->channel->list();
+
+
+/**
+ * 发送消息
+ */
+$message = $application->message->create([
+    'title'       => '这个发送消息的内容',
+    'attachments' => [
+        [
+            'text'  => '附件的标题',
+            'image' => [
+                [
+                    'url' => 'http://image.url.com'
+                ]
+            ]
+        ]
+    ]
+]);
+
+
+/**
+ * 用户信息
+ */
+$me = $application->user->me();
+$user = $application->user->list();
+
+
+/**
+ * 人员信息
+ */
+$session = $application->session_channel->list();
+$session = $application->session_channel->create(["=bw52O", "=bw52P"], '这个是讨论组名称');
 
 ```

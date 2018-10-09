@@ -6,62 +6,47 @@
  */
 require 'vendor/autoload.php';
 
-$application = new \Hachi\Alibaba\Application([
-    /*
-     * access_key_id
-     */
-    'access_key_id' => 'x',
-
-    /*
-     * access_key_secret
-     */
-    'access_key_secret' => 'x',
-    'response_type' => 'collection',
-
-    /*
-     * 邮件推送服务
-     */
-    'direct_mail' => [
-        /*
-         * 发信人
-         */
-        'from' => 'noreply@support.zhuzhengqian.com',
-
-        /*
-         * 发信人昵称
-         */
-        'from_alias' => '',
-
-        /*
-         * 回信地址
-         */
-        'reply_address' => true,
-    ],
+$application = new \Hachi\Bearychat\Application([
+    'token' => 'demo-token'
 ]);
 
-$steam = $application->tts->speak('我的文本');
 
-file_put_contents('/tmp/abc.mp3', $steam);
+/**
+ * 频道列表
+ */
+$channels = $application->channel->list();
 
-dd();
 
-$html = '
-<p>这个是段落</p>
-';
+/**
+ * 发送消息
+ */
+$message = $application->message->create([
+    'title'       => '这个发送消息的内容',
+    'attachments' => [
+        [
+            'text'  => '附件的标题',
+            'image' => [
+                [
+                    'url' => 'http://image.url.com'
+                ]
+            ]
+        ]
+    ]
+]);
 
-$htmlMessage = new \Hachi\Alibaba\DirectMail\HtmlMessage($html);
 
-try {
-    $body = $application->direct_mail->singleSend('hachi.zzq@gmail.com', $htmlMessage, '发送别名', '这个是主题');
-} catch (\Hachi\Alibaba\Kernel\Exceptions\MailSendException $exception) {
-    dd($exception);
-}
+/**
+ * 用户信息
+ */
+$me = $application->user->me();
+$user = $application->user->list();
 
-dd($body);
 
-try {
-    $body = $application->direct_mail->singleSend('hachi.zzq@gmail.com', new \Hachi\Alibaba\DirectMail\TextMessage('这是个测试'), 'hello', 'e');
-} catch (\Hachi\Alibaba\Kernel\Exceptions\MailSendException $exception) {
-    dd($exception);
-}
-dd($body);
+/**
+ * 会员信息
+ */
+$session = $application->session_channel->list();
+$session = $application->session_channel->create(["=bw52O", "=bw52P"], '这个是讨论组名称');
+
+
+
