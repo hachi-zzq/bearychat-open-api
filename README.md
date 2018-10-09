@@ -20,22 +20,6 @@ composer require hachi-zzq/bearychat-open-api
 
 ```
 
-## 开始使用
-
-### 配置文件
-
-```php
-<?php
-
-/**
- * 配置文件
- */
-return [
-    'token'    => 'bearychat-rtm-token'
-];
-
-```
-
 ## 使用示例
 ```php
 <?php
