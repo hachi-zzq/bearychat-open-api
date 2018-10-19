@@ -61,7 +61,7 @@ $user = $application->user->list();
 
 
 /**
- * 人员信息
+ * 会话
  */
 $session = $application->session_channel->list();
 $session = $application->session_channel->create(["=bw52O", "=bw52P"], '这个是讨论组名称');
