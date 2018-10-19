@@ -8,12 +8,10 @@
 
 namespace Hachi\Bearychat\Kernel\Exceptions;
 
-
 /**
  * bearychat 异常
  * Class BearychatRequestException.
  */
 class BearychatRequestRejectException extends \Exception
 {
-
 }

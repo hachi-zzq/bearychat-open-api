@@ -260,7 +260,7 @@ class BaseClient
 
                         return $response;
                     },
-                    function(\Exception $exception){
+                    function (\Exception $exception) {
                         throw new BearychatRequestRejectException($exception->getMessage());
                     }
                 );
