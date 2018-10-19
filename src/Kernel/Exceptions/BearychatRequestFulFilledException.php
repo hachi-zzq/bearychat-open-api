@@ -14,7 +14,7 @@ use Throwable;
  * bearychat 异常
  * Class BearychatRequestException.
  */
-class BearychatRequestException extends \Exception
+class BearychatRequestFulFilledException extends \Exception
 {
     protected $bearychatErrorCode;
 

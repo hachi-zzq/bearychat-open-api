@@ -12,7 +12,8 @@
 namespace Hachi\Bearychat\Kernel;
 
 use GuzzleHttp\Client;
-use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestException;
+use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestFulFilledException;
+use Hachi\Bearychat\Kernel\Exceptions\BearychatRequestRejectException;
 use Hachi\Bearychat\Kernel\Http\Response;
 use Psr\Http\Message\RequestInterface;
 use Hachi\Bearychat\Traits\HasHttpRequests;
@@ -254,10 +255,13 @@ class BaseClient
                     function (\GuzzleHttp\Psr7\Response $response) use ($request, $handler) {
                         $content = json_decode($response->getBody()->getContents(), true);
                         if (isset($content['code'])) {
-                            throw new BearychatRequestException($content['error'] ?? '', $content['code']);
+                            throw new BearychatRequestFulFilledException($content['error'] ?? '', $content['code']);
                         }
 
                         return $response;
+                    },
+                    function(\Exception $exception){
+                        throw new BearychatRequestRejectException($exception->getMessage());
                     }
                 );
             };
