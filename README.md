@@ -52,7 +52,6 @@ $message = $application->message->create([
     ]
 ]);
 
-
 /**
  * 用户信息
  */
